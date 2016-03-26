@@ -348,8 +348,8 @@ inherited MainForm: TMainForm
         Height = 253
         Top = 26
         Width = 772
-        HorzScrollBar.Page = 768
-        VertScrollBar.Page = 249
+        HorzScrollBar.Page = 715
+        VertScrollBar.Page = 231
         Align = alClient
         ClientHeight = 249
         ClientWidth = 768
@@ -372,82 +372,82 @@ inherited MainForm: TMainForm
           TabOrder = 0
           object txTorrentNameLabel: TLabel
             Left = 4
-            Height = 14
+            Height = 13
             Top = 4
-            Width = 32
+            Width = 31
             Caption = 'Name:'
             ParentColor = False
           end
           object txTorrentName: TLabel
             Left = 181
-            Height = 14
+            Height = 13
             Top = 4
-            Width = 74
+            Width = 73
             Caption = 'txTorrentName'
             ParentColor = False
             ShowAccelChar = False
           end
           object txCreatedLabel: TLabel
             Left = 381
-            Height = 14
+            Height = 13
             Top = 4
-            Width = 59
+            Width = 58
             Caption = 'Created on:'
             ParentColor = False
           end
           object txCreated: TLabel
             Left = 578
-            Height = 14
+            Height = 13
             Top = 4
-            Width = 50
+            Width = 49
             Caption = 'txCreated'
             ParentColor = False
           end
           object txTotalSizeLabel: TLabel
             Left = 4
-            Height = 14
+            Height = 13
             Top = 22
-            Width = 50
+            Width = 49
             Caption = 'Total size:'
             ParentColor = False
           end
           object txTotalSize: TLabel
             Left = 181
-            Height = 14
+            Height = 13
             Top = 22
-            Width = 54
+            Width = 53
             Caption = 'txTotalSize'
             ParentColor = False
           end
           object txPiecesLabel: TLabel
             Left = 381
-            Height = 14
+            Height = 13
             Top = 22
-            Width = 35
+            Width = 34
             Caption = 'Pieces:'
             ParentColor = False
           end
           object txPieces: TLabel
             Left = 578
-            Height = 14
+            Height = 13
             Top = 22
-            Width = 41
+            Width = 40
             Caption = 'txPieces'
             ParentColor = False
           end
           object txHashLabel: TLabel
             Left = 4
-            Height = 14
+            Height = 13
             Top = 40
-            Width = 29
+            Width = 28
             Caption = 'Hash:'
             ParentColor = False
           end
           object txHash: TLabel
             Left = 181
-            Height = 14
+            Height = 13
             Top = 40
-            Width = 35
+            Width = 34
             Caption = 'txHash'
             ParentColor = False
             ShowAccelChar = False
@@ -463,42 +463,42 @@ inherited MainForm: TMainForm
           end
           object txComment: TLabel
             Left = 578
-            Height = 14
+            Height = 13
             Top = 40
-            Width = 56
+            Width = 55
             Caption = 'txComment'
             ParentColor = False
             ShowAccelChar = False
           end
           object txAddedOnLabel: TLabel
             Left = 4
-            Height = 14
+            Height = 13
             Top = 58
-            Width = 51
+            Width = 50
             Caption = 'Added on:'
             ParentColor = False
           end
           object txAddedOn: TLabel
             Left = 181
-            Height = 14
+            Height = 13
             Top = 58
-            Width = 56
+            Width = 55
             Caption = 'txAddedOn'
             ParentColor = False
           end
           object txCompletedOnLabel: TLabel
             Left = 381
-            Height = 14
+            Height = 13
             Top = 58
-            Width = 71
+            Width = 70
             Caption = 'Completed on:'
             ParentColor = False
           end
           object txCompletedOn: TLabel
             Left = 578
-            Height = 14
+            Height = 13
             Top = 58
-            Width = 76
+            Width = 75
             Caption = 'txCompletedOn'
             ParentColor = False
           end
@@ -521,177 +521,177 @@ inherited MainForm: TMainForm
           TabOrder = 1
           object txStatusLabel: TLabel
             Left = 4
-            Height = 14
+            Height = 13
             Top = 4
-            Width = 36
+            Width = 35
             Caption = 'Status:'
             ParentColor = False
           end
           object txStatus: TLabel
             Left = 140
-            Height = 14
+            Height = 13
             Top = 4
-            Width = 42
+            Width = 41
             Caption = 'txStatus'
             ParentColor = False
           end
           object txErrorLabel: TLabel
             Left = 262
-            Height = 14
+            Height = 13
             Top = 4
-            Width = 29
+            Width = 28
             Caption = 'Error:'
             ParentColor = False
           end
           object txError: TLabel
             Left = 407
-            Height = 14
+            Height = 13
             Top = 4
-            Width = 35
+            Width = 34
             Caption = 'txError'
             ParentColor = False
           end
           object txRemainingLabel: TLabel
             Left = 541
-            Height = 14
+            Height = 13
             Top = 4
-            Width = 54
+            Width = 53
             Caption = 'Remaining:'
             ParentColor = False
           end
           object txRemaining: TLabel
             Left = 651
-            Height = 14
+            Height = 13
             Top = 4
-            Width = 60
+            Width = 59
             Caption = 'txRemaining'
             ParentColor = False
           end
           object txDownloadedLabel: TLabel
             Left = 4
-            Height = 14
+            Height = 13
             Top = 22
-            Width = 64
+            Width = 63
             Caption = 'Downloaded:'
             ParentColor = False
           end
           object txDownloaded: TLabel
             Left = 140
-            Height = 14
+            Height = 13
             Top = 22
-            Width = 70
+            Width = 69
             Caption = 'txDownloaded'
             ParentColor = False
           end
           object txUploadedLabel: TLabel
             Left = 262
-            Height = 14
+            Height = 13
             Top = 22
-            Width = 50
+            Width = 49
             Caption = 'Uploaded:'
             ParentColor = False
           end
           object txUploaded: TLabel
             Left = 407
-            Height = 14
+            Height = 13
             Top = 22
-            Width = 56
+            Width = 55
             Caption = 'txUploaded'
             ParentColor = False
           end
           object txWastedLabel: TLabel
             Left = 541
-            Height = 14
+            Height = 13
             Top = 22
-            Width = 42
+            Width = 41
             Caption = 'Wasted:'
             ParentColor = False
           end
           object txWasted: TLabel
             Left = 651
-            Height = 14
+            Height = 13
             Top = 22
-            Width = 48
+            Width = 47
             Caption = 'txWasted'
             ParentColor = False
           end
           object txDownSpeedLabel: TLabel
             Left = 4
-            Height = 14
+            Height = 13
             Top = 40
-            Width = 84
+            Width = 83
             Caption = 'Download speed:'
             ParentColor = False
           end
           object txDownSpeed: TLabel
             Left = 140
-            Height = 14
+            Height = 13
             Top = 40
-            Width = 68
+            Width = 67
             Caption = 'txDownSpeed'
             ParentColor = False
           end
           object txUpSpeedLabel: TLabel
             Left = 262
-            Height = 14
+            Height = 13
             Top = 40
-            Width = 70
+            Width = 69
             Caption = 'Upload speed:'
             ParentColor = False
           end
           object txUpSpeed: TLabel
             Left = 407
-            Height = 14
+            Height = 13
             Top = 40
-            Width = 54
+            Width = 53
             Caption = 'txUpSpeed'
             ParentColor = False
           end
           object txRatioLabel: TLabel
             Left = 541
-            Height = 14
+            Height = 13
             Top = 40
-            Width = 58
+            Width = 57
             Caption = 'Share ratio:'
             ParentColor = False
           end
           object txRatio: TLabel
             Left = 651
-            Height = 14
+            Height = 13
             Top = 40
-            Width = 36
+            Width = 35
             Caption = 'txRatio'
             ParentColor = False
           end
           object txDownLimitLabel: TLabel
             Left = 4
-            Height = 14
+            Height = 13
             Top = 58
-            Width = 53
+            Width = 52
             Caption = 'Down limit:'
             ParentColor = False
           end
           object txDownLimit: TLabel
             Left = 140
-            Height = 14
+            Height = 13
             Top = 58
-            Width = 59
+            Width = 58
             Caption = 'txDownLimit'
             ParentColor = False
           end
           object txUpLimitLabel: TLabel
             Left = 262
-            Height = 14
+            Height = 13
             Top = 58
-            Width = 39
+            Width = 38
             Caption = 'Up limit:'
             ParentColor = False
           end
           object txUpLimit: TLabel
             Left = 407
-            Height = 14
+            Height = 13
             Top = 58
-            Width = 45
+            Width = 44
             Caption = 'txUpLimit'
             ParentColor = False
           end
@@ -711,97 +711,97 @@ inherited MainForm: TMainForm
           end
           object txSeedsLabel: TLabel
             Left = 4
-            Height = 14
+            Height = 13
             Top = 76
-            Width = 34
+            Width = 33
             Caption = 'Seeds:'
             ParentColor = False
           end
           object txSeeds: TLabel
             Left = 140
-            Height = 14
+            Height = 13
             Top = 76
-            Width = 40
+            Width = 39
             Caption = 'txSeeds'
             ParentColor = False
           end
           object txPeersLabel: TLabel
             Left = 262
-            Height = 14
+            Height = 13
             Top = 76
-            Width = 32
+            Width = 31
             Caption = 'Peers:'
             ParentColor = False
           end
           object txPeers: TLabel
             Left = 407
-            Height = 14
+            Height = 13
             Top = 76
-            Width = 38
+            Width = 37
             Caption = 'txPeers'
             ParentColor = False
           end
           object txMaxPeersLabel: TLabel
             Left = 541
-            Height = 14
+            Height = 13
             Top = 76
-            Width = 55
+            Width = 54
             Caption = 'Max peers:'
             ParentColor = False
           end
           object txMaxPeers: TLabel
             Left = 651
-            Height = 14
+            Height = 13
             Top = 76
-            Width = 58
+            Width = 57
             Caption = 'txMaxPeers'
             ParentColor = False
           end
           object txTrackerLabel: TLabel
             Left = 4
-            Height = 14
+            Height = 13
             Top = 94
-            Width = 41
+            Width = 40
             Caption = 'Tracker:'
             ParentColor = False
           end
           object txTracker: TLabel
             Left = 140
-            Height = 14
+            Height = 13
             Top = 94
-            Width = 47
+            Width = 46
             Caption = 'txTracker'
             ParentColor = False
           end
           object txTrackerUpdateLabel: TLabel
             Left = 262
-            Height = 14
+            Height = 13
             Top = 94
-            Width = 93
+            Width = 92
             Caption = 'Tracker update on:'
             ParentColor = False
           end
           object txTrackerUpdate: TLabel
             Left = 407
-            Height = 14
+            Height = 13
             Top = 94
-            Width = 82
+            Width = 81
             Caption = 'txTrackerUpdate'
             ParentColor = False
           end
           object txLastActiveLabel: TLabel
             Left = 541
-            Height = 14
+            Height = 13
             Top = 94
-            Width = 57
+            Width = 56
             Caption = 'Last active:'
             ParentColor = False
           end
           object txLastActive: TLabel
             Left = 651
-            Height = 14
+            Height = 13
             Top = 94
-            Width = 61
+            Width = 60
             Caption = 'txLastActive'
             ParentColor = False
           end
@@ -853,7 +853,7 @@ inherited MainForm: TMainForm
           Left = 8
           Height = 26
           Top = 0
-          Width = 64
+          Width = 63
           Align = alLeft
           BorderSpacing.Left = 8
           Caption = 'Downloaded:'
@@ -861,10 +861,10 @@ inherited MainForm: TMainForm
           ParentColor = False
         end
         object txDownProgress: TLabel
-          Left = 724
+          Left = 725
           Height = 26
           Top = 0
-          Width = 40
+          Width = 39
           Align = alRight
           Alignment = taRightJustify
           Anchors = [akTop, akRight]
@@ -874,10 +874,10 @@ inherited MainForm: TMainForm
           ParentColor = False
         end
         object pbDownloaded: TPaintBox
-          Left = 78
+          Left = 77
           Height = 14
           Top = 6
-          Width = 640
+          Width = 642
           Align = alClient
           Anchors = [akTop, akLeft, akRight]
           BorderSpacing.Around = 6
@@ -1110,10 +1110,11 @@ inherited MainForm: TMainForm
     end
     object ToolButton2: TToolButton
       Left = 95
+      Height = 22
       Top = 2
       Width = 10
       Caption = 'ToolButton2'
-      Style = tbsSeparator
+      Style = tbsDivider
     end
     object ToolButton3: TToolButton
       Left = 105
@@ -1132,17 +1133,19 @@ inherited MainForm: TMainForm
     end
     object ToolButton6: TToolButton
       Left = 39
+      Height = 22
       Top = 2
       Width = 10
       Caption = 'ToolButton6'
-      Style = tbsSeparator
+      Style = tbsDivider
     end
     object ToolButton7: TToolButton
       Left = 263
+      Height = 22
       Top = 2
       Width = 10
       Caption = 'ToolButton7'
-      Style = tbsSeparator
+      Style = tbsDivider
     end
     object ToolButton8: TToolButton
       Left = 273
@@ -1168,17 +1171,19 @@ inherited MainForm: TMainForm
     end
     object sepAltSpeed: TToolButton
       Left = 230
+      Height = 22
       Top = 2
       Width = 10
       Caption = 'sepAltSpeed'
-      Style = tbsSeparator
+      Style = tbsDivider
     end
     object sepQueue: TToolButton
       Left = 174
+      Height = 22
       Top = 2
       Width = 10
       Caption = 'sepQueue'
-      Style = tbsSeparator
+      Style = tbsDivider
     end
     object tbQMoveUp: TToolButton
       Left = 184
@@ -1208,7 +1213,7 @@ inherited MainForm: TMainForm
     OnResize = panReconnectResize
     object txConnErrorLabel: TLabel
       Left = 16
-      Height = 14
+      Height = 13
       Top = 8
       Width = 129
       Align = alTop
@@ -1223,7 +1228,7 @@ inherited MainForm: TMainForm
     object txConnError: TLabel
       Left = 16
       Height = 1
-      Top = 26
+      Top = 25
       Width = 129
       Align = alTop
       Alignment = taCenter
@@ -1237,7 +1242,7 @@ inherited MainForm: TMainForm
     object txReconnectSecs: TLabel
       Left = 16
       Height = 1
-      Top = 35
+      Top = 34
       Width = 129
       Align = alTop
       Alignment = taCenter
