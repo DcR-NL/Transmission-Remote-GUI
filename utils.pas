@@ -424,6 +424,8 @@ begin
     WrkProcess.CommandLine:=cmd + ' "' + fn + '"';
     WrkProcess.Execute;
     Result:=WrkProcess.ExitStatus;
+    if Result < 0 then
+      Result:=0;
   finally
     WrkProcess.Free;
   end;
