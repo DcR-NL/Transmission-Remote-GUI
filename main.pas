@@ -25,7 +25,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, zstream, LResources, Forms, Controls, Graphics, Dialogs, ComCtrls, Menus, ActnList,
-  httpsend, StdCtrls, fpjson, jsonparser, ExtCtrls, rpc, syncobjs, variants, varlist, IpResolver,
+  httpsend, StdCtrls, fpjson2, jsonparser2, ExtCtrls, rpc, syncobjs, variants, varlist, IpResolver,
   zipper, ResTranslator, VarGrid, StrUtils, LCLProc, Grids, BaseForm, utils, AddTorrent;
 
 const

@@ -25,7 +25,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, LResources, Forms, Controls, Graphics, Dialogs, StdCtrls, Spin, VarGrid, Grids,
-  ButtonPanel, ExtCtrls, BaseForm, varlist, fpjson;
+  ButtonPanel, ExtCtrls, BaseForm, varlist, fpjson2;
 
 resourcestring
   SSize = 'Size';

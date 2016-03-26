@@ -124,7 +124,7 @@ type
 
 implementation
 
-uses main, utils, fpjson;
+uses main, utils, fpjson2;
 
 { TDaemonOptionsForm }
 
