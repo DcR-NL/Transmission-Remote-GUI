@@ -515,7 +515,7 @@ begin
     WriteBool(Sec, 'UseSockProxy', cbUseSocks5.Checked);
     WriteString(Sec, 'ProxyHost', Trim(edProxy.Text));
     WriteInteger(Sec, 'ProxyPort', edProxyPort.Value);
-    if cbProxyAuth.Checked then begin
+    if not cbProxyAuth.Checked then begin
       edProxyUserName.Text:='';
       edProxyPassword.Text:='';
     end;
