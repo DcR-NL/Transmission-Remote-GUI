@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
   <ProjectOptions>
     <Version Value="9"/>
@@ -51,7 +51,6 @@
       <Unit0>
         <Filename Value="transgui.lpr"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="transgui"/>
       </Unit0>
       <Unit1>
         <Filename Value="main.pas"/>
@@ -64,7 +63,6 @@
       <Unit2>
         <Filename Value="rpc.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="rpc"/>
       </Unit2>
       <Unit3>
         <Filename Value="addtorrent.pas"/>
@@ -85,7 +83,6 @@
       <Unit5>
         <Filename Value="varlist.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="varlist"/>
       </Unit5>
       <Unit6>
         <Filename Value="torrprops.pas"/>
@@ -122,7 +119,6 @@
         <ComponentName Value="DownloadForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="download"/>
       </Unit10>
       <Unit11>
         <Filename Value="colsetup.pas"/>
@@ -135,7 +131,6 @@
       <Unit12>
         <Filename Value="utils.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="utils"/>
       </Unit12>
       <Unit13>
         <Filename Value="restranslator.pas"/>
@@ -217,11 +212,7 @@
       <Verbosity>
         <ShowHints Value="False"/>
       </Verbosity>
-      <CompilerMessages>
-        <UseMsgFile Value="True"/>
-      </CompilerMessages>
       <CustomOptions Value="-Sa"/>
-      <CompilerPath Value="$(CompPath)"/>
     </Other>
   </CompilerOptions>
 </CONFIG>
