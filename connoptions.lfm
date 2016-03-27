@@ -33,33 +33,33 @@ inherited ConnOptionsForm: TConnOptionsForm
       ClientWidth = 505
       object txPassword: TLabel
         Left = 24
-        Height = 14
+        Height = 13
         Top = 157
-        Width = 51
+        Width = 50
         Caption = 'Password:'
         ParentColor = False
       end
       object txUserName: TLabel
         Left = 24
-        Height = 14
+        Height = 13
         Top = 128
-        Width = 56
+        Width = 55
         Caption = 'User name:'
         ParentColor = False
       end
       object txPort: TLabel
         Left = 8
-        Height = 14
+        Height = 13
         Top = 76
-        Width = 25
+        Width = 24
         Caption = 'Port:'
         ParentColor = False
       end
       object txHost: TLabel
         Left = 8
-        Height = 14
+        Height = 13
         Top = 48
-        Width = 66
+        Width = 65
         Caption = 'Remote host:'
         ParentColor = False
       end
@@ -137,9 +137,9 @@ inherited ConnOptionsForm: TConnOptionsForm
       end
       object txRpcPath: TLabel
         Left = 8
-        Height = 14
+        Height = 13
         Top = 212
-        Width = 50
+        Width = 49
         Caption = 'RPC path:'
         ParentColor = False
       end
@@ -374,9 +374,9 @@ inherited ConnOptionsForm: TConnOptionsForm
     TabOrder = 0
     object txConName: TLabel
       Left = 0
-      Height = 14
+      Height = 13
       Top = 4
-      Width = 88
+      Width = 87
       Caption = 'Connection name:'
       ParentColor = False
     end
