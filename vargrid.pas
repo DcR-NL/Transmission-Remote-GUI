@@ -963,10 +963,16 @@ begin
 end;
 
 procedure TVarGrid.VisualChange;
+var
+  i: integer;
 begin
   inherited VisualChange;
-  if HandleAllocated then
-    DefaultRowHeight:=Canvas.TextHeight('Xy') + 5;
+  if HandleAllocated then begin
+    i:=Canvas.TextHeight('Xy') + 5;
+    if Assigned(Images) and (i < Images.Height) then
+      i:=Images.Height;
+    DefaultRowHeight:=i;
+  end;
   UpdateColumnsMap;
 end;
 

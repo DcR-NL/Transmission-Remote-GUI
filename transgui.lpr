@@ -37,7 +37,7 @@ uses
   Interfaces, // this includes the LCL widgetset
   Forms
   { you can add units after this }, BaseForm, Main, rpc, AddTorrent, ConnOptions, varlist,
-  TorrProps, DaemonOptions, About, IpResolver, download, ColSetup, utils, ResTranslator, AddLink, MoveTorrent, AddTracker, Options;
+  TorrProps, DaemonOptions, About, IpResolver, download, ColSetup, utils, ResTranslator, AddLink, MoveTorrent, AddTracker, Options, data;
 
 {$R *.res}
 
@@ -45,6 +45,7 @@ begin
   if not CheckAppParams then exit;
 
   Application.Initialize;
+  DM:=TDM.Create(Application);
   Application.CreateForm(TMainForm, MainForm);
   Application.Run;
 end.

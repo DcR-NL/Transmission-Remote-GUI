@@ -26,7 +26,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, zstream, LResources, Forms, Controls, Graphics, Dialogs, ComCtrls, Menus, ActnList,
   httpsend, StdCtrls, fpjson2, jsonparser2, ExtCtrls, rpc, syncobjs, variants, varlist, IpResolver,
-  zipper, ResTranslator, VarGrid, StrUtils, LCLProc, Grids, BaseForm, utils, AddTorrent;
+  zipper, ResTranslator, VarGrid, StrUtils, LCLProc, Grids, BaseForm, utils, AddTorrent, data;
 
 const
   AppName = 'Transmission Remote GUI';
@@ -207,7 +207,6 @@ type
     edSearch: TEdit;
     imgSearch: TImage;
     imgFlags: TImageList;
-    ImageList16: TImageList;
     FilterTimer: TTimer;
     MenuItem100: TMenuItem;
     MenuItem68: TMenuItem;
@@ -1331,19 +1330,21 @@ begin
   FFilesCapt:=tabFiles.Caption;
   FPasswords:=TStringList.Create;
 
+  MainToolBar.ButtonWidth:=DM.ImageList16.Width + ScaleInt(8);
+  MainToolBar.ButtonHeight:=MainToolBar.ButtonWidth;
   FSlowResponse:=TProgressImage.Create(MainToolBar);
   with FSlowResponse do begin
     Align:=alRight;
-    Images:=ImageList16;
+    Images:=DM.ImageList16;
     StartIndex:=30;
     EndIndex:=37;
-    Width:=ScaleInt(24);
+    Width:=MainToolBar.ButtonWidth;
     Left:=MainToolBar.ClientWidth;
     Parent:=MainToolBar;
   end;
   FDetailsWait:=TProgressImage.Create(panDetailsWait);
   with FDetailsWait do begin
-    Images:=ImageList16;
+    Images:=DM.ImageList16;
     StartIndex:=FSlowResponse.StartIndex;
     EndIndex:=FSlowResponse.EndIndex;
     Width:=Images.Width*2;
