@@ -52,11 +52,11 @@ implementation
 uses LCLType, ButtonPanel, VarGrid, ComCtrls, StdCtrls, ExtCtrls, lclversion;
 
 var
-  ScaleM, ScaleD: integer;
+  ScaleMul, ScaleDiv: integer;
 
 function ScaleInt(i: integer): integer;
 begin
-  Result:=i*ScaleM div ScaleD;
+  Result:=i*ScaleMul div ScaleDiv;
 end;
 
 type THackControl = class(TWinControl) end;
@@ -117,8 +117,8 @@ begin
     if C is TWinControl then
       TWinControl(C).DisableAlign;
     try
-      if ScaleM <> ScaleD then begin
-        ScaleConstraints(ScaleM, ScaleD);
+      if ScaleMul <> ScaleDiv then begin
+        ScaleConstraints(ScaleMul, ScaleDiv);
         R := BaseBounds;
         R.Left := ScaleInt(R.Left);
         R.Top := ScaleInt(R.Top);
@@ -237,26 +237,26 @@ var
   i: integer;
   tm: TLCLTextMetric;
 begin
-  if ScaleD <> 0 then exit;
-  ScaleD:=11;
+  if ScaleDiv <> 0 then exit;
+  ScaleDiv:=11;
   i:=Screen.SystemFont.Height;
   if i = 0 then begin
     if Canvas.GetTextMetrics(tm) then begin
-      ScaleM:=tm.Ascender;
-      if ScaleM < 11 then
-        ScaleM:=11;
+      ScaleMul:=tm.Ascender;
+      if ScaleMul < 11 then
+        ScaleMul:=11;
     end
     else begin
-      ScaleM:=Canvas.TextHeight('Wy');
-      ScaleD:=13;
+      ScaleMul:=Canvas.TextHeight('Wy');
+      ScaleDiv:=13;
     end;
-    if ScaleM = 0 then
-      ScaleM:=ScaleD;
+    if ScaleMul = 0 then
+      ScaleMul:=ScaleDiv;
   end
   else
-    ScaleM:=Abs(i);
-  ScaleM:=ScaleM*IntfScale;
-  ScaleD:=ScaleD*100;
+    ScaleMul:=Abs(i);
+  ScaleMul:=ScaleMul*IntfScale;
+  ScaleDiv:=ScaleDiv*100;
 end;
 
 initialization
