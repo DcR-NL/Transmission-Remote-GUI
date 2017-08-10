@@ -237,7 +237,7 @@ procedure Register;
 
 implementation
 
-uses Variants, Math, GraphType, lclintf, Themes, types, lclproc
+uses Variants, Math, GraphType, lclintf, Themes, types, lclproc, lazutf8
      {$ifdef LCLcarbon} , carbonproc {$endif LCLcarbon};
 
 const

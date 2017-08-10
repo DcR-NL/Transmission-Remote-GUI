@@ -156,7 +156,7 @@ const
 
 implementation
 
-uses lclintf, lcltype, main, variants, Utils, rpc, lclproc;
+uses lclintf, lcltype, main, variants, Utils, rpc, lclproc, LazUtf8;
 
 const
   roChecked   = $030000;
