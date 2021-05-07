@@ -69,7 +69,7 @@ ShowLanguageDialog=yes
 
 #if GetEnv("CODECERT") != ""
 #define CODECERT GetEnv("CODECERT")
-SignTool=signtool sign /d "{#AppName} Setup" /du "{#AppURL}" /f "{#CODECERT}" /v $f
+SignTool=signtool sign /as /fd sha256 /tr "http://timestamp.digicert.com" /td sha256 /d "{#AppName} Setup" /du "{#AppURL}" /f "{#CODECERT}" /v $f
 #endif
 
 [Types]
@@ -93,10 +93,16 @@ Source: "..\..\LICENSE.txt"; DestDir: "{app}"; Flags: ignoreversion; Components:
 Source: "..\..\readme.txt"; DestDir: "{app}"; Flags: ignoreversion; Components: app
 Source: "..\..\history.txt"; DestDir: "{app}"; Flags: ignoreversion; Components: app
 Source: "..\..\lang\transgui.*"; DestDir: "{app}\lang"; Flags: ignoreversion; Components: lang
+; flags.zip
+Source: "..\..\flags.zip"; DestDir: "{localappdata}\{#AppName}"; Components: app
 ; OpenSSL
 #if FileExists("libeay32.dll") && FileExists("ssleay32.dll")
 Source: "libeay32.dll"; DestDir: "{app}"; Components: app
 Source: "ssleay32.dll"; DestDir: "{app}"; Components: app
+#endif
+; Legacy GeoIP
+#if FileExists("GeoIP.dat")
+Source: "GeoIP.dat"; DestDir: "{localappdata}\{#AppName}"; Components: app
 #endif
 
 [Icons]

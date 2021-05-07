@@ -1,3 +1,9 @@
+5.0.2 (May 07, 2021)
+[*] Include the GeoIP database and country flags images in the Windows installer.
+[*] Updated OpenSSL to 1.0.2q in the Windows installer.
+[*] Update GeoIP database from https://mailfud.org/geoip-legacy/
+[*] Corrected project URLs.
+
 5.0.1 (Jan 04, 2014)
 [*] Include OpenSSL files in Windows setup. Issue #711.
 [-] Disable the "Save as" field when adding magnet links. Issue #725.

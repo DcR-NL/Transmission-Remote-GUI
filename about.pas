@@ -98,6 +98,8 @@ begin
   if CheckVersionThread <> nil then
     exit;
   Ini.WriteInteger('Interface', 'LastNewVersionCheck', Trunc(Now));
+  if not CheckOpenSslLoaded then
+    exit;
   CheckVersionThread:=TCheckVersionThread.Create(True);
   CheckVersionThread.FreeOnTerminate:=True;
   if Async then
@@ -112,7 +114,7 @@ end;
 procedure GoHomePage;
 begin
   AppBusy;
-  OpenURL('http://code.google.com/p/transmisson-remote-gui');
+  OpenURL('https://sourceforge.net/projects/transgui');
   AppNormal;
 end;
 
@@ -143,7 +145,7 @@ begin
 
   Application.ProcessMessages;
   AppBusy;
-  OpenURL('http://code.google.com/p/transmisson-remote-gui/wiki/Download?tm=2');
+  OpenURL(Format('https://sourceforge.net/projects/transgui/files/%s/', [FVersion]));
   AppNormal;
 end;
 
@@ -180,9 +182,11 @@ begin
           FHttp.ProxyUser:=RpcObj.Http.ProxyUser;
           FHttp.ProxyPass:=RpcObj.Http.ProxyPass;
         end;
-        if FHttp.HTTPMethod('GET', 'http://transmisson-remote-gui.googlecode.com/svn/wiki/version.txt') then begin
+        if FHttp.HTTPMethod('GET', 'https://transgui.sourceforge.io/version.txt') then begin
           if FHttp.ResultCode = 200 then begin
-            SetString(FVersion, FHttp.Document.Memory, FHttp.Document.Size);
+            SetLength(FVersion, FHttp.Document.Size);
+            if Length(FVersion) > 0 then
+              FHttp.Document.ReadBuffer(FVersion[1], Length(FVersion));
             FVersion:=Trim(FVersion);
           end
           else

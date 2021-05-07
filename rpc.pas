@@ -138,12 +138,54 @@ type
     property RpcPath: string read FRpcPath write FRpcPath;
   end;
 
+function LoadOpenSSL: boolean;
+
 var
   RemotePathDelimiter: char = '/';
 
 implementation
 
 uses Main, ssl_openssl_lib, synafpc, blcksock;
+
+function LoadOpenSSL: boolean;
+{$ifdef unix}
+{$ifndef darwin}
+  procedure CheckOpenSSL;
+  const
+    OpenSSLVersions: array[1..2] of string =
+      ('0.9.8', '1.0.0');
+  var
+    hLib1, hLib2: TLibHandle;
+    i: integer;
+  begin
+    for i:=Low(OpenSSLVersions) to High(OpenSSLVersions) do begin
+      hlib1:=LoadLibrary(PChar('libssl.so.' + OpenSSLVersions[i]));
+      hlib2:=LoadLibrary(PChar('libcrypto.so.' + OpenSSLVersions[i]));
+      if hLib2 <> 0 then
+        FreeLibrary(hLib2);
+      if hLib1 <> 0 then
+        FreeLibrary(hLib1);
+      if (hLib1 <> 0) and (hLib2 <> 0) then begin
+        DLLSSLName:='libssl.so.' + OpenSSLVersions[i];
+        DLLUtilName:='libcrypto.so.' + OpenSSLVersions[i];
+        break;
+      end;
+    end;
+  end;
+{$endif darwin}
+{$endif unix}
+begin
+  Result:=IsSSLloaded;
+  if Result then exit;
+{$ifdef unix}
+{$ifndef darwin}
+  CheckOpenSSL;
+{$endif darwin}
+{$endif unix}
+  Result:=InitSSLInterface;
+  if Result then
+    SSLImplementation := TSSLOpenSSL;
+end;
 
 { TRpcThread }
 
@@ -581,41 +623,8 @@ begin
 end;
 
 procedure TRpc.InitSSL;
-{$ifdef unix}
-{$ifndef darwin}
-  procedure CheckOpenSSL;
-  const
-    OpenSSLVersions: array[1..2] of string =
-      ('0.9.8', '1.0.0');
-  var
-    hLib1, hLib2: TLibHandle;
-    i: integer;
-  begin
-    for i:=Low(OpenSSLVersions) to High(OpenSSLVersions) do begin
-      hlib1:=LoadLibrary(PChar('libssl.so.' + OpenSSLVersions[i]));
-      hlib2:=LoadLibrary(PChar('libcrypto.so.' + OpenSSLVersions[i]));
-      if hLib2 <> 0 then
-        FreeLibrary(hLib2);
-      if hLib1 <> 0 then
-        FreeLibrary(hLib1);
-      if (hLib1 <> 0) and (hLib2 <> 0) then begin
-        DLLSSLName:='libssl.so.' + OpenSSLVersions[i];
-        DLLUtilName:='libcrypto.so.' + OpenSSLVersions[i];
-        break;
-      end;
-    end;
-  end;
-{$endif darwin}
-{$endif unix}
 begin
-  if IsSSLloaded then exit;
-{$ifdef unix}
-{$ifndef darwin}
-  CheckOpenSSL;
-{$endif darwin}
-{$endif unix}
-  if InitSSLInterface then
-    SSLImplementation := TSSLOpenSSL;
+  LoadOpenSSL;
   CreateHttp;
 end;
 
@@ -696,7 +705,9 @@ begin
 
         if Http.ResultCode <> 200 then begin
           if Http.Headers.Count > 0 then begin
-            SetString(s, Http.Document.Memory, Http.Document.Size);
+            SetLength(s, Http.Document.Size);
+            if Length(s) > 0 then
+              Http.Document.ReadBuffer(s[1], Length(s));
             j:=Pos('<body>', LowerCase(s));
             if j > 0 then
               System.Delete(s, 1, j - 1);

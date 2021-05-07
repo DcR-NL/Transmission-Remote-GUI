@@ -87,6 +87,8 @@ function DownloadFile(const URL, DestFolder: string; const DestFileName, Display
 var
   s: string;
 begin
+  if SameText(Copy(URL, 1, 6), 'https:') and not CheckOpenSslLoaded then
+    exit;
   with TDownloadForm.Create(Application) do
   try
     s:=ExtractFileName(StringReplace(URL, '/', DirectorySeparator, [rfReplaceAll]));

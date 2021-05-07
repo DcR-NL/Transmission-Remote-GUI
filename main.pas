@@ -30,7 +30,7 @@ uses
 
 const
   AppName = 'Transmission Remote GUI';
-  AppVersion = '5.0.1';
+  AppVersion = '5.0.2';
 
 resourcestring
   sAll = 'All torrents';
@@ -666,6 +666,7 @@ type
   end;
 
 function CheckAppParams: boolean;
+function CheckOpenSslLoaded: boolean;
 function GetHumanSize(sz: double; RoundTo: integer = 0; const EmptyStr: string = '-'): string;
 function PriorityToStr(p: integer; var ImageIndex: integer): string;
 procedure DrawProgressCell(Sender: TVarGrid; ACol, ARow, ADataCol: integer; AState: TGridDrawState; const ACellRect: TRect);
@@ -1100,6 +1101,13 @@ begin
   IntfScale:=Ini.ReadInteger('Interface', 'Scaling', 100);
 
   Result:=True;
+end;
+
+function CheckOpenSslLoaded: boolean;
+begin
+  Result:=LoadOpenSSL;
+  if not Result then
+    MessageDlg(Format(sSSLLoadError, [DLLSSLName, DLLUtilName]), mtError, [mbOK], 0);
 end;
 
 function PriorityToStr(p: integer; var ImageIndex: integer): string;
@@ -2568,7 +2576,7 @@ end;
 
 function TMainForm.DownloadGeoIpDatabase(AUpdate: boolean): boolean;
 const
-  GeoLiteURL = 'http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz';
+  GeoLiteURL = 'https://mailfud.org/geoip-legacy/GeoIP.dat.gz';
 var
   tmp: string;
   gz: TGZFileStream;
@@ -3124,7 +3132,7 @@ end;
 
 procedure TMainForm.acShowCountryFlagExecute(Sender: TObject);
 const
-  FlagsURL = 'http://transmisson-remote-gui.googlecode.com/files/flags.zip';
+  FlagsURL = 'https://transgui.sourceforge.io/flags.zip';
 begin
   if not acShowCountryFlag.Checked then
     if GetFlagsArchive = '' then begin
@@ -4195,11 +4203,9 @@ begin
     FPasswords.Delete(i);
 
   if Ini.ReadBool(Sec, 'UseSSL', False) then begin
-    RpcObj.InitSSL;
-    if not IsSSLloaded then begin
-      MessageDlg(Format(sSSLLoadError, [DLLSSLName, DLLUtilName]), mtError, [mbOK], 0);
+    if not CheckOpenSslLoaded then
       exit;
-    end;
+    RpcObj.InitSSL;
     RpcObj.Url:='https';
   end
   else
