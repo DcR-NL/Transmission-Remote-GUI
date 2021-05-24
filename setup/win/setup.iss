@@ -94,7 +94,9 @@ Source: "..\..\readme.txt"; DestDir: "{app}"; Flags: ignoreversion; Components: 
 Source: "..\..\history.txt"; DestDir: "{app}"; Flags: ignoreversion; Components: app
 Source: "..\..\lang\transgui.*"; DestDir: "{app}\lang"; Flags: ignoreversion; Components: lang
 ; flags.zip
-Source: "..\..\flags.zip"; DestDir: "{localappdata}\{#AppName}"; Components: app
+#if FileExists("flags.zip")
+Source: "flags.zip"; DestDir: "{localappdata}\{#AppName}"; Components: app
+#endif
 ; OpenSSL
 #if FileExists("libeay32.dll") && FileExists("ssleay32.dll")
 Source: "libeay32.dll"; DestDir: "{app}"; Components: app
