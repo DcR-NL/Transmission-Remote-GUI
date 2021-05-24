@@ -579,6 +579,7 @@ type
 {$ifdef LCLcarbon}
     FFormActive: boolean;
 {$endif LCLcarbon}
+    FSlowResponsePanel: TPanel;
     FSlowResponse: TProgressImage;
     FDetailsWait: TProgressImage;
     FDetailsWaitStart: TDateTime;
@@ -1340,15 +1341,20 @@ begin
 
   MainToolBar.ButtonWidth:=DM.ImageList16.Width + ScaleInt(8);
   MainToolBar.ButtonHeight:=MainToolBar.ButtonWidth;
-  FSlowResponse:=TProgressImage.Create(MainToolBar);
+  FSlowResponsePanel:=TPanel.Create(Self);
+  with FSlowResponsePanel do begin
+    Visible:=False;
+    TabStop:=False;
+    BevelOuter:=bvNone;
+    FSlowResponsePanel.Parent:=MainToolBar.Parent;
+  end;
+  FSlowResponse:=TProgressImage.Create(FSlowResponsePanel);
   with FSlowResponse do begin
-    Align:=alRight;
     Images:=DM.ImageList16;
     StartIndex:=30;
     EndIndex:=37;
-    Width:=MainToolBar.ButtonWidth;
-    Left:=MainToolBar.ClientWidth;
-    Parent:=MainToolBar;
+    Align:=alClient;
+    Parent:=FSlowResponsePanel;
   end;
   FDetailsWait:=TProgressImage.Create(panDetailsWait);
   with FDetailsWait do begin
@@ -1512,9 +1518,19 @@ begin
 end;
 
 procedure TMainForm.FormResize(Sender: TObject);
+var
+  R, RR: TRect;
 begin
   if panReconnect.Visible then
     CenterReconnectWindow;
+  if FSlowResponsePanel.Visible then begin
+    R:=MainToolBar.BoundsRect;
+    RR.Right:=R.Right - 2;
+    RR.Left:=RR.Right - (R.Bottom - R.Top);
+    RR.Top:=R.Top + 2;
+    RR.Bottom:=R.Bottom - 2;
+    FSlowResponsePanel.BoundsRect:=RR;
+  end;
 end;
 
 procedure TMainForm.FormShow(Sender: TObject);
@@ -4045,15 +4061,18 @@ begin
           DoConnect
         else
           txReconnectSecs.Caption:=Format(sReconnect, [FReconnectTimeOut - Round(SecsPerDay*(Now - FReconnectWaitStart))]);
-
     if FSlowResponse.Visible then begin
-      if RpcObj.RequestStartTime = 0 then
+      if RpcObj.RequestStartTime = 0 then begin
         FSlowResponse.Visible:=False;
+        FSlowResponsePanel.Visible:=False;
+      end;
     end
     else
-      if (RpcObj.RequestStartTime <> 0) and (Now - RpcObj.RequestStartTime >= 1/SecsPerDay) then
+      if (RpcObj.RequestStartTime <> 0) and (Now - RpcObj.RequestStartTime >= 1/SecsPerDay) then begin
         FSlowResponse.Visible:=True;
-
+        FSlowResponsePanel.Visible:=True;
+        FormResize(nil);
+      end;
     if FDetailsWait.Visible then begin
       if (FDetailsWaitStart = 0) or not (rtDetails in RpcObj.RefreshNow) then begin
         FDetailsWaitStart:=0;
